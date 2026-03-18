@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Vereinsfarben: Dunkelgrün + Gold ─────────────────────── */
+  --color-primary:        #1B4D2E;
+  --color-primary-hover:  #14391F;
+  --color-primary-dim:    #1B4D2E66;
+  --color-primary-ghost:  #1B4D2E14;
+  --color-primary-light:  #4A8C61;
+
+  --color-accent:         #C9A84C;
+  --color-accent-hover:   #B8933A;
+  --color-accent-dim:     #C9A84C66;
+  --color-accent-ghost:   #C9A84C14;
+  --color-accent-light:   #E2C46F;
+
+  /* ── Basis ────────────────────────────────────────────────── */
+  --color-dark:           #0A1A0A;
+  --color-dark-surface:   #111D11;
+  --color-white:          #FFFFFF;
+  --color-surface:        #F4F6F4;
+  --color-surface-card:   #FFFFFF;
+  --color-border:         #E0E7E0;
+  --color-border-dark:    #1E3020;
+
+  /* ── Text ─────────────────────────────────────────────────── */
+  --color-text-dark:      #111827;
+  --color-text-muted:     #6B7280;
+  --color-text-light:     #F9FAFB;
+  --color-text-light-dim: #9CA3AF;
+
+  /* ── Typografie ───────────────────────────────────────────── */
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root { min-height: 100vh; }
+
+/* ── Scroll-Reveal ────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Animationen ──────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.03); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
